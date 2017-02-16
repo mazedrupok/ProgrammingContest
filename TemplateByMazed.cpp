@@ -119,6 +119,7 @@ template <class T> inline T gcd(T a,T b){if(b==0)return a;return gcd(b,a%b);}
 template <class T> inline T lcm(T a,T b){return (a*b)/gcd(a,b);}
 template <class T> inline T modinverse(T a,T M){return bigpow(a,M-2,M);}
 template <class T> inline T bpow(T p,T e){LL ret=1;for(;e>0;e>>=1){if(e&1)ret=(ret*p);p=(p*p);}return(T)ret;}
+template<class T> string to_str(T t){stringstream ss; ss<<t; return ss.str();}
 
 inline bool ispow2(int x){return (x!=0 && (x&(x-1))==0);}
 void extended_euclid(LL a,LL b,LL &x,LL &y){if(!b){x = 1, y = 0; return;} LL xx,yy;extended_euclid(b,a%b,xx,yy);x = yy;y = xx-(a/b)*yy;}
