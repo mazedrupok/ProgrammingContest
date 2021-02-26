@@ -150,14 +150,20 @@ int main ()
 
 /* 
 //Disjoint set, Union find
-int par[N];
-int find(int u) {
-    return par[u] == u ? u : find(par[u]);
+int parent[1000], Rank[1000];
+int Find(int x){
+    return parent[x] = (parent[x] == x ? x : Find(parent[x]));
 }
-bool merge(int u, int v) {
-    u = find(u); v = find(v);
-    par[u] = v;
-    return u == v;
+bool check(int a, int b){ return Find(a) == Find(b); }
+void Union(int p, int q) {
+    parent[Find(p)] = Find(q);
+}
+void UnionByRank(int p, int q){
+    p = Find(p);
+    q = Find(q);
+    if(Rank[p] < Rank[q]) parent[p] = q;
+    else parent[q] = p;
+    if(Rank[p] == Rank[q]) Rank[p]++;
 }
 */
 
